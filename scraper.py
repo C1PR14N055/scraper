@@ -21,7 +21,7 @@ from product import Product
 USE_FIREFOX = False
 internet_on = False
 driver = None
-scraped = []
+scrapedLinks = []
 
 def writeFile(text):
 	f = open("prod.txt", "w")
