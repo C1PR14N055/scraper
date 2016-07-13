@@ -12,9 +12,13 @@ from selenium.webdriver.support import expected_conditions as EC
 ''' URLLIB2 FOR CHECKING CONN '''
 import urllib2
 ''' URLLIB2 FOR CHECKING CONN '''
+#import sys
 from sys import platform as _platform
 from pprint import pprint
-import time
+import time, json
+
+#reload(sys)  
+#sys.setdefaultencoding('utf8')
 
 from product import Product
 
@@ -24,9 +28,13 @@ driver = None
 scrapedLinks = []
 
 def writeFile(text):
-	f = open("prod.txt", "w")
+	f = open("prod.json", "w")
 	f.write(text.encode('utf8'))
 	f.close()
+
+def readFileGetLinks():
+	f = open("sitemap.txt", "r")
+	return f.readlines()
 
 def	q(selector, what): #select html elements by css selector
 	global driver
@@ -46,7 +54,7 @@ def	q(selector, what): #select html elements by css selector
 		return driver.find_elements_by_css_selector(selector) \
 		if driver.find_elements_by_css_selector(selector) is not None else None		
 	
-def scrapeProduct():
+def scrapeProduct(url):
 	global internet_on
 	while not internet_on:
 		try:
@@ -59,7 +67,7 @@ def scrapeProduct():
 			time.sleep("10.0")
 
 	global driver
-	driver.get("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564636")
+	driver.get(url)
 	prod = Product() #new Product object
 
 	if not isProductPage():
@@ -71,11 +79,13 @@ def scrapeProduct():
 	displayStatus("Scraping product page...", 1)
 
 	#common product attrs
+	prod.href = url
 	prod.title = q("h1.title", "text")
 	prod.subtitle = q("h2.subtitle", "text")
 	prod.price = q("#ctl00_PlaceHolderMain_ctl37_PricePanel", "text")
 	prod.img = q("#ctl00_PlaceHolderMain_ctl16_ImgProductDetailImage", "src")
 	prod.variation = getProductVariation()
+	prod.included = q(".product-detail-shipment ul", "text")
 	#end common product attrs
 
 	#product details
@@ -88,12 +98,11 @@ def scrapeProduct():
 	#end product details
 
 	#performance imgs
-	prod.product_detail_performance_features = ", ".join(getImageSrcs(q(".product-detail-performance-features img.performance-feature-img", None)))
+	prod.product_detail_performance_features_imgs = getImageSrcs(q(".product-detail-performance-features img.performance-feature-img", None))
 	#end performance imgs
 		
 	#table with pdfs
 	prod.product_pdfs_table = q("#ctl00_PlaceHolderMain_ctl26_UpdatePanel1 table", "html")
-
 
 	#table with tehnical data
 	prod.tehnical_data = executeWaitAndGet("#ctl00_PlaceHolderMain_ctl28_LbtnAllTechnicalData", 
@@ -102,13 +111,16 @@ def scrapeProduct():
 		"#ctl00_PlaceHolderMain_ctl28_ctl00 table",
 		"html")
 
+	prod.accessoriesLinks = getAccessoriesHrefs()
+
 	#print prod.tehnical_data[0].get_attribute("innerHTML")
 	writeProduct(prod)
 	
 def getProductHasVariations():
 	if q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection select option", "len") > 0:
 		return True
-	else False		
+	else:
+		return False		
 			
 def getProductVariation(): #curent prod variation
 	if q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection", "len") >= 1:
@@ -121,9 +133,9 @@ def executeWaitAndGet(elem_exists, js_to_exec, elem_expected, elem_to_get, what)
 		try:
 			if elem_to_get is not None:
 				WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, elem_expected)))
-				elem = q(elem_to_get, None)
+				elem = q(elem_to_get, None)[0]
 			else:	
-				elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, elem_expected)))
+				elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, elem_expected)))[0]
 			if what == "html":
 				return elem.get_attribute("innerHTML")
 			elif what == "text":
@@ -132,6 +144,8 @@ def executeWaitAndGet(elem_exists, js_to_exec, elem_expected, elem_to_get, what)
 				return elem.get_attribute("src")
 			elif what == "len":
 				return len(elem)
+			elif what == "self":
+				return elem	
 			else:
 				return ""			
 		except TimeoutException:
@@ -152,26 +166,56 @@ def isProductAccesoriesPage():
 	else:
 		return False
 	
-def getImageSrcs(list): #get all img srcs from html, return list
+def getImageSrcs(img_list): #get all img srcs from html, return list
 	x = []
-	for el in list:
+	for el in img_list:
 		x.append(el.get_attribute("src"))
 	return x
+
+def getAccessoriesHrefs():
+	if q("#ctl00_PlaceHolderMain_ctl30_ctl00 div.system-accessory-item", "len") <= 0:
+		displayStatus("No accessories to get...", 0)
+		return None
+	elif q("#ctl00_PlaceHolderMain_ctl30_ctl00 div.system-accessory-item", "len") > 0 and \
+		q("#ctl00_PlaceHolderMain_ctl30_ctl00 div.system-accessory-item", "len") <= 6 and \
+		q("#ctl00_PlaceHolderMain_ctl30_BtnAllSystemAccessories", "len") <= 0:
+		displayStatus("Getting the accessories from this page...", 1)
+		acc = q("#ctl00_PlaceHolderMain_ctl30_ctl00", None)[0]
+	elif q("#ctl00_PlaceHolderMain_ctl30_BtnAllSystemAccessories", "len") >= 1:
+		displayStatus("Getting accessories from accessories page...", 1)
+		acc = executeWaitAndGet("#ctl00_PlaceHolderMain_ctl30_BtnAllSystemAccessories",
+			"__doPostBack('ctl00$PlaceHolderMain$ctl30$LbtnAllSystemAccessories','')",
+			"#ctl00_PlaceHolderMain_ctl34_ctl00 .system-accessory-item:nth-of-type(13)",
+			"#ctl00_PlaceHolderMain_ctl34_ctl00",
+			"self")
+	else:
+		return None
+
+	hrefs = []
+	for link in acc.find_elements_by_css_selector("a.styled-link"):
+		hrefs.append(link.get_attribute("href"))	
+	return hrefs
 
 def stripParams(url):
 	return url[0:url.index("?")]	
 	
+def mkdir(name):
+	if not os.path.exists(name):
+		os.makedirs(name)
+
 def writeProduct(prod):
 	if False: #debug
-		pprint(vars(prod))
-		print "\nTables with pdfs: " + prod.product_pdfs_table[0].text
+		print json.dumps(prod.__dict__)
 		return
+	writeFile(prod.to_json())
+	return	
 	writeFile("Titlu: " + prod.title + "\nSubtitlu: " + prod.subtitle + "\nPret: " + prod.price 
 		+ "\nSursa imagine: " + prod.img + "\nTitlu descriere: " + prod.product_details_title
 		+ "\nDescriere: " + prod.product_details + "\nTitlu caracteristici: " + prod.product_detail_common_attributes_title
 		+ "\nCaracteristici: " + prod.product_detail_common_attributes + "\nTitlu atribuitari: " + prod.product_detail_primary_uses_title
 		+ "\nAtribuintari: " + prod.product_detail_primary_uses + "\nPerf. features: " + prod.product_detail_performance_features
-		+ "\nTables with pdfs: " + prod.product_pdfs_table + "\nTehnical data: " + prod.tehnical_data)
+		+ "\nTables with pdfs: " + prod.product_pdfs_table
+		+ "\nTehnical data: " + prod.tehnical_data)
 
 def displayStatus(msg, color):
 	global driver
@@ -213,10 +257,9 @@ def __init__():
 	else:	
 		driver = webdriver.Chrome()
 
-	scrapeProduct()
+	#scrapeProduct("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564636")
+	#https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ   -- 8 consumables in new tab :(
+	scrapeProduct("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584173&name=Aparat-mobil-de-aspirare-CTL-SYS")
 	#driver.close()	
 
 __init__()	
-#elem.send_keys("")
-#elem.send_keys(Keys.RETURN)
-#assert "No results found." not in driver.page_source

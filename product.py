@@ -1,11 +1,15 @@
+import json
+
 class Product:
 	def __init__(self):
 		#common product attrs
+		self.href = None
 		self.title = None
 		self.subtitle = None
 		self.price = None
 		self.img = None
 		self.variation = None
+		self.included = None
 		#end common product attrs
 
 		#product details
@@ -26,3 +30,9 @@ class Product:
 
 		#tech data
 		self.tehnical_data = None
+		
+		#product accessories urls
+		self.accessoriesLinks = []
+
+	def to_json(self):
+		return json.dumps(self.__dict__, sort_keys=True, indent=4)
