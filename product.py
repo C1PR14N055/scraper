@@ -34,5 +34,8 @@ class Product:
 		#product accessories urls
 		self.accessoriesLinks = []
 
+		#product consumables urls
+		self.consumablesLinks = []
+
 	def to_json(self):
 		return json.dumps(self.__dict__, sort_keys=True, indent=4)
