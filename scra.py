@@ -304,15 +304,15 @@ def saveProduct(prod):
 
 def saveAccessorie(acc, prod):
 	displayStatus("Downloading accessorie assets...", 1)
-	fileName = (prod.title + "_" + prod.subtitle + "_" + prod.variation).decode("utf-8").replace(" ", "-").lower()
-	fileNameAcc = (acc.title).decode("utf-8").replace(" ", "-").lower()
+	fileName = (prod.title + "_" + prod.subtitle + "_" + prod.variation).decode("utf-8").replace(" ", "-").replace("/", "-").lower()
+	fileNameAcc = (acc.title).decode("utf-8").replace(" ", "-").replace("/", "-").lower()
 
 	try:
 		mkdir(productsDir)
 		mkdir(assetsDir)
-		mkdir(productsDir + fileName + accDir + fileNameAcc)
+		mkdir(productsDir + fileName + "/" + accDir + fileNameAcc)
 		downloadFile(acc.img, \
-			productsDir + fileName + accDir + fileNameAcc + "/" + acc.img[acc.img.rindex("/") + 1:]) #download image and save as filename reverse index of /
+			productsDir + fileName + "/" + accDir + fileNameAcc + "/" + acc.img[acc.img.rindex("/") + 1:]) #download image and save as filename reverse index of /
 	except Exception as ex:
 		displayStatus(str(ex), -1)
 		pass
