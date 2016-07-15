@@ -21,6 +21,7 @@ import time, json, os
 #sys.setdefaultencoding('utf8')
 
 from product import Product
+from accessorie import Accessorie
 
 USE_FIREFOX = False
 internet_on = False
@@ -28,6 +29,7 @@ driver = None
 scrapedLinks = []
 assetsDir = "assets/"
 productsDir = "prod/"
+accDir = "acc/"
 
 def readFileGetLinks():
 	f = open("sitemap.txt", "r")
@@ -36,20 +38,20 @@ def readFileGetLinks():
 def	q(selector, what): #select html elements by css selector
 	global driver
 	if what == "html":
-		return driver.find_elements_by_css_selector(selector)[0].get_attribute("innerHTML") \
-		if driver.find_elements_by_css_selector(selector) is not None else None
+		return driver.find_elements_by_css_selector(selector)[0].get_attribute("innerHTML").encode("utf-8") \
+		if len(driver.find_elements_by_css_selector(selector)) > 0 else None
 	elif what == "text":
-		return driver.find_elements_by_css_selector(selector)[0].text \
-		if driver.find_elements_by_css_selector(selector) is not None else None
+		return driver.find_elements_by_css_selector(selector)[0].text.encode("utf-8") \
+		if len(driver.find_elements_by_css_selector(selector)) > 0 else None
 	elif what == "src":
 		return driver.find_elements_by_css_selector(selector)[0].get_attribute("src") \
-		if driver.find_elements_by_css_selector(selector) is not None else None
+		if len(driver.find_elements_by_css_selector(selector)) > 0 else None
 	elif what == "len":
 		return len(driver.find_elements_by_css_selector(selector)) \
-		if driver.find_elements_by_css_selector(selector) is not None else -1
+		if len(driver.find_elements_by_css_selector(selector)) > 0 else -1
 	else:
 		return driver.find_elements_by_css_selector(selector) \
-		if driver.find_elements_by_css_selector(selector) is not None else None		
+		if len(driver.find_elements_by_css_selector(selector)) > 0 else None		
 
 def loadProductPage(url):
 	global internet_on
@@ -67,42 +69,40 @@ def loadProductPage(url):
 	driver.get(url)
 
 def scrapeProduct(prod):
-
 	global driver
 
 	#common product attrs
-	prod.href = driver.current_url
-	prod.title = q("h1.title", "text")
-	prod.subtitle = q("h2.subtitle", "text")
-	prod.price = q("#ctl00_PlaceHolderMain_ctl37_PricePanel", "text")
-	prod.img = stripParams(q("#ctl00_PlaceHolderMain_ctl16_ImgProductDetailImage", "src"))
-	prod.variation = getProductVariation()
-	prod.included = q(".product-detail-shipment ul", "text")
+	prod.href = str(driver.current_url)
+	prod.title = str(q("h1.title", "text"))
+	prod.subtitle = str(q("h2.subtitle", "text"))
+	prod.price = str(q("#ctl00_PlaceHolderMain_ctl37_PricePanel", "text"))
+	prod.img = str(stripParams(q("#ctl00_PlaceHolderMain_ctl16_ImgProductDetailImage", "src")))
+	prod.variation = str(getProductVariation())
+	prod.included = str(q(".product-detail-shipment ul", "text"))
 	#end common product attrs
 
 	#product details
-	prod.product_details_title = q(".product-detail-txt h3.title", "text")
-	prod.product_details = q("ul.detail-txt-list", "text")
-	prod.product_detail_common_attributes_title = q(".product-detail-common-attributes h3.title", "text")
-	prod.product_detail_common_attributes = q("ul.common-attributes-list", "text")
-	prod.product_detail_primary_uses_title = q(".product-detail-primary-uses h3.title", "text")
-	prod.product_detail_primary_uses = q("ul.primary-uses-list", "text")
+	prod.product_details_title = str(q(".product-detail-txt h3.title", "text"))
+	prod.product_details = str(q("ul.detail-txt-list", "text"))
+	prod.product_detail_common_attributes_title = str(q(".product-detail-common-attributes h3.title", "text"))
+	prod.product_detail_common_attributes = str(q("ul.common-attributes-list", "text"))
+	prod.product_detail_primary_uses_title = str(q(".product-detail-primary-uses h3.title", "text"))
+	prod.product_detail_primary_uses = str(q("ul.primary-uses-list", "text"))
 	#end product details
 
 	#performance imgs
-	prod.product_detail_performance_features_imgs = getImageSrcs(q(".product-detail-performance-features img.performance-feature-img", None))
-	#end performance imgs
+	prod.product_detail_performance_features_imgs = str(getImageSrcs(q(".product-detail-performance-features img.performance-feature-img", None)))
 		
 	#table with pdfs
-	prod.product_pdfs_table = q("#ctl00_PlaceHolderMain_ctl26_UpdatePanel1 table", "html")
+	prod.product_pdfs_table = str(q("#ctl00_PlaceHolderMain_ctl26_UpdatePanel1 table", "html"))
 
 	#table with tehnical data
 	displayStatus("Expanding product tehnical data", 0)
-	prod.tehnical_data = executeWaitAndGet("#ctl00_PlaceHolderMain_ctl28_LbtnAllTechnicalData", 
+	prod.tehnical_data = str(executeWaitAndGet("#ctl00_PlaceHolderMain_ctl28_LbtnAllTechnicalData", 
 		"__doPostBack('ctl00$PlaceHolderMain$ctl28$LbtnAllTechnicalData','')",
 		"#ctl00_PlaceHolderMain_ctl28_ctl00 table tr:nth-child(4)",
 		"#ctl00_PlaceHolderMain_ctl28_ctl00 table",
-		"html")
+		"html"))
 
 	#product accessories
 	prod.accessoriesLinks = getAccessoriesHrefs()
@@ -113,6 +113,47 @@ def scrapeProduct(prod):
 	#download aseests
 	saveProduct(prod)
 	
+def scrapeAccessorie(acc, prod):
+	global driver
+
+	#common product attrs
+	acc.href = str(driver.current_url)
+	acc.title = str(q(".product-detail-title", "text"))
+	acc.price = str(q("#ctl00_PlaceHolderMain_ctl33_PricePanel", "text"))
+	acc.img = str(stripParams(q("#ctl00_PlaceHolderMain_ctl20_ProductImage", "src")))
+	acc.included = str(q("#ctl00_PlaceHolderMain_ctl19_UpdatePanel1", "text"))
+	#end common product attrs
+
+	#product details
+	acc.product_details = str(q("#ctl00_PlaceHolderMain_ctl21_UpdatePanel1", "text"))
+
+	#table with tehnical data
+	displayStatus("Expanding product tehnical data", 0)
+	acc.tehnical_data = str(q("#ctl00_PlaceHolderMain_ctl23_UpdatePanel1", "html"))
+
+	#download aseests
+	saveAccessorie(acc, prod)
+
+def isAccessoriesPage():
+	global driver
+	try:
+		if driver.current_url.index("festool.ro/Products/Accessories") != -1:
+			return True
+		else:
+			return False
+	except:
+		return False	
+
+def isProductPafe():
+	global driver
+	try:
+		if driver.current_url.index("festool.ro/Products/Pages/Product-Detail.aspx") != -1:
+			return True
+		else:
+			return False	
+	except:
+		return False			
+
 def getProductVariations():
 	if q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection option", "len") > 0:
 		return q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection option", None)
@@ -134,9 +175,9 @@ def executeWaitAndGet(elem_exists, js_to_exec, elem_expected, elem_to_get, what)
 			else:	
 				elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, elem_expected)))[0]
 			if what == "html":
-				return elem.get_attribute("innerHTML")
+				return elem.get_attribute("innerHTML").encode("utf-8")
 			elif what == "text":
-				return elem.text
+				return elem.text.encode("utf-8")
 			elif what == "src":
 				return elem.get_attribute("src")
 			elif what == "len":
@@ -153,6 +194,8 @@ def executeWaitAndGet(elem_exists, js_to_exec, elem_expected, elem_to_get, what)
 		return ""	
 	
 def getImageSrcs(img_list): #get all img srcs from html, return list
+	if img_list is None:
+		return None
 	x = []
 	for el in img_list:
 		x.append(el.get_attribute("src"))
@@ -244,18 +287,41 @@ def saveProduct(prod):
 	displayStatus("Downloading product assets...", 1)
 	fileName = (prod.title + "_" + prod.subtitle + "_" + prod.variation).decode("utf-8").replace(" ", "-").lower()
 	try:
-		mkdir(fileName)
+		mkdir(productsDir)
+		mkdir(assetsDir)
+		mkdir(productsDir + fileName)
 		downloadFile(prod.img, \
-			fileName + "/" + prod.img[prod.img.rindex("/") + 1:]) #download image and save as filename reverse index of .
+			productsDir + fileName + "/" + prod.img[prod.img.rindex("/") + 1:]) #download image and save as filename reverse index of .
 	except Exception as ex:
 		displayStatus(str(ex), -1)
 		pass
 
 	#save to json file
 	displayStatus("Saving product...", 1)
-	f = open(fileName + ".json", "w")
+	f = open(productsDir + fileName + "/" + "prod.json", "w")
 	f.write(prod.to_json().encode('utf8'))
 	f.close()
+
+def saveAccessorie(acc, prod):
+	displayStatus("Downloading accessorie assets...", 1)
+	fileName = (prod.title + "_" + prod.subtitle + "_" + prod.variation).decode("utf-8").replace(" ", "-").lower()
+	fileNameAcc = (acc.title).decode("utf-8").replace(" ", "-").lower()
+
+	try:
+		mkdir(productsDir)
+		mkdir(assetsDir)
+		mkdir(productsDir + fileName + accDir + fileNameAcc)
+		downloadFile(acc.img, \
+			productsDir + fileName + accDir + fileNameAcc + "/" + acc.img[acc.img.rindex("/") + 1:]) #download image and save as filename reverse index of /
+	except Exception as ex:
+		displayStatus(str(ex), -1)
+		pass
+
+	#save to json file
+	displayStatus("Saving accessorie...", 1)
+	f = open(productsDir + fileName + "/" + accDir + fileNameAcc + "/" + "acc.json", "w")
+	f.write(acc.to_json().encode('utf8'))
+	f.close()	
 
 def displayStatus(msg, color):
 	global driver
@@ -298,6 +364,9 @@ def clearScreen():
 		os.system("cls")
 
 def __init__():
+	'''
+	try:
+	'''
 	clearScreen()
 	global driver
 	if (USE_FIREFOX):
@@ -307,25 +376,48 @@ def __init__():
 		driver = webdriver.Chrome()
 
 	loadProductPage("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ")
+	#loadProductPage("https://www.festool.ro/Products/Accessories/Pages/Detail.aspx?pid=496169&name=CT-filtru-umed-NF-CT-26-36-48")
+
 	prod = Product()
 	if getProductVariations() is not None:
 		lastVariation = q("body", "html")
 		for i in range(len(getProductVariations())):
 			if getProductVariations()[i].get_attribute("value") == "":
 				scrapeProduct(prod)
+				if prod.accessoriesLinks is not None \
+					and len(prod.accessoriesLinks) > 0:
+					for j in range(len(prod.accessoriesLinks)):
+						loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
+						acc = Accessorie()
+						scrapeAccessorie(acc, prod)
+						driver.back()
 				continue
 			displayStatus("Switching product variation...", 0)
 			getProductVariations()[i].click()
-			while getProductVariation() == lastVariation:
+			while q("body", "html") == lastVariation:
 				time.sleep(0.5)
-			lastVariation = getProductVariation()	
+			lastVariation = q("body", "html")	
 			scrapeProduct(prod)
+			if prod.accessoriesLinks is not None \
+				and len(prod.accessoriesLinks) > 0:
+				for j in range(len(prod.accessoriesLinks)):
+					loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
+					acc = Accessorie()
+					scrapeAccessorie(acc, prod)
+					driver.back()
 	else:
-		#scrapeProduct(prod)
-		print "NO " + getProductVariations()
-		pass
+		scrapeProduct(prod)
 
+	displayStatus("Done!", 1)
+	speak("Crawler finished, exit code 1")
+	#driver.close()		
+	'''		
+	except Exception as ex:
+		print str(ex)
+		speak("Exception raised in main thread!")
+		raise(ex)	
+	'''
 	#scrapeProduct("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ")   #-- 8 consumables in new tab :(
-	#driver.close()	
+	
 
 __init__()	
