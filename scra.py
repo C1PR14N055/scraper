@@ -91,7 +91,7 @@ def scrapeProduct(prod):
 	#end product details
 
 	#performance imgs
-	prod.product_detail_performance_features_imgs = str(getImageSrcs(q(".product-detail-performance-features img.performance-feature-img", None)))
+	prod.product_detail_performance_features_imgs = getImageSrcs(q(".product-detail-performance-features img.performance-feature-img", None))
 		
 	#table with pdfs
 	prod.product_pdfs_table = str(q("#ctl00_PlaceHolderMain_ctl26_UpdatePanel1 table", "html"))
@@ -110,8 +110,10 @@ def scrapeProduct(prod):
 	#product consumables
 	prod.consumablesLinks = getConsumablesHrefs()
 
-	#download aseests
+	#download assets
 	saveProduct(prod)
+
+	saveAssets(prod.product_detail_performance_features_imgs)
 	
 def scrapeAccessorie(acc, prod):
 	global driver
@@ -278,6 +280,12 @@ def mkdir(name):
 	if not os.path.exists(name):
 		os.makedirs(name)
 
+def saveAssets(assetsList):
+	if assetsList is not None and len(assetsList) > 0:
+		for asset in assetsList:
+			if not os.path.isfile(assetsDir + asset[asset.rindex("/") + 1:]):
+				downloadFile(stripParams(asset), stripParams(assetsDir + asset[asset.rindex("/") + 1:]))
+
 def downloadFile(urlToRetrieve, dirName):
 	file = urllib2.urlopen(urlToRetrieve).read()
 	with open(dirName, "wb") as localFile:
@@ -364,25 +372,39 @@ def clearScreen():
 		os.system("cls")
 
 def __init__():
-	'''
+	
 	try:
-	'''
-	clearScreen()
-	global driver
-	if (USE_FIREFOX):
-		binary = FirefoxBinary('/usr/bin/firefox') 
-		driver = webdriver.Firefox() #.Firefox(firefox_binary=binary) 
-	else:	
-		driver = webdriver.Chrome()
+	
+		clearScreen()
+		global driver
+		if (USE_FIREFOX):
+			binary = FirefoxBinary('/usr/bin/firefox')
+			driver = webdriver.Firefox() #.Firefox(firefox_binary=binary) 
+		else:	
+			driver = webdriver.Chrome()
 
-	loadProductPage("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ")
-	#loadProductPage("https://www.festool.ro/Products/Accessories/Pages/Detail.aspx?pid=496169&name=CT-filtru-umed-NF-CT-26-36-48")
+		loadProductPage("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ")
+		#loadProductPage("https://www.festool.ro/Products/Accessories/Pages/Detail.aspx?pid=496169&name=CT-filtru-umed-NF-CT-26-36-48")
 
-	prod = Product()
-	if getProductVariations() is not None:
-		lastVariation = q("body", "html")
-		for i in range(len(getProductVariations())):
-			if getProductVariations()[i].get_attribute("value") == "":
+		prod = Product()
+		if getProductVariations() is not None:
+			lastVariation = q("body", "html")
+			for i in range(len(getProductVariations())):
+				if getProductVariations()[i].get_attribute("value") == "":
+					scrapeProduct(prod)
+					if prod.accessoriesLinks is not None \
+						and len(prod.accessoriesLinks) > 0:
+						for j in range(len(prod.accessoriesLinks)):
+							loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
+							acc = Accessorie()
+							scrapeAccessorie(acc, prod)
+							driver.back()
+					continue
+				displayStatus("Switching product variation...", 0)
+				getProductVariations()[i].click()
+				while q("body", "html") == lastVariation:
+					time.sleep(0.5)
+				lastVariation = q("body", "html")	
 				scrapeProduct(prod)
 				if prod.accessoriesLinks is not None \
 					and len(prod.accessoriesLinks) > 0:
@@ -391,12 +413,7 @@ def __init__():
 						acc = Accessorie()
 						scrapeAccessorie(acc, prod)
 						driver.back()
-				continue
-			displayStatus("Switching product variation...", 0)
-			getProductVariations()[i].click()
-			while q("body", "html") == lastVariation:
-				time.sleep(0.5)
-			lastVariation = q("body", "html")	
+		else:
 			scrapeProduct(prod)
 			if prod.accessoriesLinks is not None \
 				and len(prod.accessoriesLinks) > 0:
@@ -405,18 +422,16 @@ def __init__():
 					acc = Accessorie()
 					scrapeAccessorie(acc, prod)
 					driver.back()
-	else:
-		scrapeProduct(prod)
 
-	displayStatus("Done!", 1)
-	speak("Crawler finished, exit code 1")
-	#driver.close()		
-	'''		
+		displayStatus("Done!", 1)
+		speak("Crawler finished, exit code 1")
+		#driver.close()		
+		
 	except Exception as ex:
 		print str(ex)
 		speak("Exception raised in main thread!")
-		raise(ex)	
-	'''
+		raise(ex)
+
 	#scrapeProduct("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ")   #-- 8 consumables in new tab :(
 	
 
