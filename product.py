@@ -4,7 +4,7 @@ class Product:
 	def __init__(self):
 		#common product attrs
 		self.parent_name = None
-		self.parnte_url = None
+		self.parent_url = None
 		self.href = None
 		self.title = None
 		self.subtitle = None

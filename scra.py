@@ -54,6 +54,13 @@ def	q(selector, what): #select html elements by css selector
 		return driver.find_elements_by_css_selector(selector) \
 		if len(driver.find_elements_by_css_selector(selector)) > 0 else None		
 
+def a_in_b(a, b):
+	try:
+		b.index(a)
+		return True
+	except:
+		return False
+
 def loadProductPage(url):
 	global internet_on
 	while not internet_on:
@@ -116,26 +123,55 @@ def scrapeProduct(prod):
 
 	saveAssets(prod.product_detail_performance_features_imgs)
 	
-def scrapeAccessorie(acc, prod, as_cons=False):
+def scrapeAccessorie(prod, as_cons=False):
 	global driver
 
-	#common product attrs
-	acc.href = str(driver.current_url)
-	acc.title = str(q(".product-detail-title", "text"))
-	acc.price = str(q("#ctl00_PlaceHolderMain_ctl33_PricePanel", "text"))
-	acc.img = str(stripParams(q("#ctl00_PlaceHolderMain_ctl20_ProductImage", "src")))
-	acc.included = str(q("#ctl00_PlaceHolderMain_ctl19_UpdatePanel1", "text"))
-	#end common product attrs
+	if a_in_b("/Products/Accessories/Pages/Variations.aspx", driver.current_url):
+		acc_vars = q(".consumable_col_link a", None)
+		acc_urls = []
+		for acc_var in acc_vars:
+			acc_urls.append(acc_var.get_attribute("href"))
+		for acc_url in acc_urls:
+			acc = Accessorie()
+			#print acc_url
+			driver.execute_script(acc_url)
+			#common product attrs
+			acc.href = str(driver.current_url)
+			acc.title = str(q(".product-detail-title", "text"))
+			acc.price = str(q("#ctl00_PlaceHolderMain_ctl33_PricePanel", "text"))
+			acc.img = str(stripParams(q("#ctl00_PlaceHolderMain_ctl20_ProductImage", "src")))
+			acc.included = str(q("#ctl00_PlaceHolderMain_ctl19_UpdatePanel1", "text"))
+			#end common product attrs
 
-	#product details
-	acc.product_details = str(q("#ctl00_PlaceHolderMain_ctl21_UpdatePanel1", "text"))
+			#product details
+			acc.product_details = str(q("#ctl00_PlaceHolderMain_ctl21_UpdatePanel1", "text"))
 
-	#table with tehnical data
-	displayStatus("Expanding product tehnical data", 0)
-	acc.tehnical_data = str(q("#ctl00_PlaceHolderMain_ctl23_UpdatePanel1", "html"))
+			#table with tehnical data
+			displayStatus("Expanding product tehnical data", 0)
+			acc.tehnical_data = str(q("#ctl00_PlaceHolderMain_ctl23_UpdatePanel1", "html"))
 
-	#download aseests
-	saveAccessorie(acc, prod, as_cons) 
+			#download aseests
+			saveAccessorie(acc, prod, as_cons) 
+			driver.back()
+	else:
+		acc = Accessorie()
+		#common product attrs
+		acc.href = str(driver.current_url)
+		acc.title = str(q(".product-detail-title", "text"))
+		acc.price = str(q("#ctl00_PlaceHolderMain_ctl33_PricePanel", "text"))
+		acc.img = str(stripParams(q("#ctl00_PlaceHolderMain_ctl20_ProductImage", "src")))
+		acc.included = str(q("#ctl00_PlaceHolderMain_ctl19_UpdatePanel1", "text"))
+		#end common product attrs
+
+		#product details
+		acc.product_details = str(q("#ctl00_PlaceHolderMain_ctl21_UpdatePanel1", "text"))
+
+		#table with tehnical data
+		displayStatus("Expanding product tehnical data", 0)
+		acc.tehnical_data = str(q("#ctl00_PlaceHolderMain_ctl23_UpdatePanel1", "html"))
+
+		#download aseests
+		saveAccessorie(acc, prod, as_cons) 	
 
 def isAccessoriesPage():
 	global driver
@@ -378,99 +414,92 @@ def clearScreen():
 
 def __init__():
 	
-	try:
-		clearScreen()
-		global driver
-		if (USE_FIREFOX):
-			binary = FirefoxBinary('/usr/bin/firefox')
-			driver = webdriver.Firefox() #.Firefox(firefox_binary=binary) 
-		else:	
-			driver = webdriver.Chrome()
+	#try:
+	clearScreen()
+	global driver
+	if (USE_FIREFOX):
+		binary = FirefoxBinary('/usr/bin/firefox')
+		driver = webdriver.Firefox() #.Firefox(firefox_binary=binary) 
+	else:	
+		driver = webdriver.Chrome()
 
-		with open("all_prods_in_cat.json") as json_file:
-			json_data = json.load(json_file)
+	with open("all_prods_in_cat.json") as json_file:
+		json_data = json.load(json_file)
 
-		for categ in json_data:
-			for produ in categ["prods"]:
-				loadProductPage(produ)
-				prod = Product()
-				prod.parent_name = categ["name"]
-				prod.parent_url = categ["url"]
+	for categ in json_data:
+		for produ in categ["prods"]:
+			loadProductPage(produ)
+			prod = Product()
+			prod.parent_name = categ["name"]
+			prod.parent_url = categ["url"]
 
-				if getProductVariations() is not None: #prod does has variations
-					lastVariation = q("body", "html")
-					for i in range(len(getProductVariations())):
-						if getProductVariations()[i].get_attribute("value") == "": #if product variation = default
-							
-							scrapeProduct(prod)
-
-							if prod.accessoriesLinks is not None \
-								and len(prod.accessoriesLinks) > 0:		#if prod has accessories
-								for j in range(len(prod.accessoriesLinks)):
-									loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
-									acc = Accessorie()
-									scrapeAccessorie(acc, prod)
-									driver.back()
-
-							if prod.consumablesLinks is not None \
-								and len(prod.consumablesLinks) > 0:		#if prod has consumables
-								for j in range(len(prod.consumablesLinks)):
-									loadProductPage(prod.consumablesLinks[j].encode("utf-8"))
-									acc = Accessorie()
-									scrapeAccessorie(acc, prod, True)
-									driver.back()		
-							continue
-						displayStatus("Switching product variation...", 0)
-						getProductVariations()[i].click()
-						while q("body", "html") == lastVariation:
-							time.sleep(0.5)
-						lastVariation = q("body", "html")	
+			if getProductVariations() is not None: #prod does has variations
+				lastVariation = q("body", "html")
+				for i in range(len(getProductVariations())):
+					if getProductVariations()[i].get_attribute("value") == "": #if product variation = default
+						
 						scrapeProduct(prod)
 
 						if prod.accessoriesLinks is not None \
-							and len(prod.accessoriesLinks) > 0:
+							and len(prod.accessoriesLinks) > 0:		#if prod has accessories
 							for j in range(len(prod.accessoriesLinks)):
 								loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
-								acc = Accessorie()
-								scrapeAccessorie(acc, prod)
+								scrapeAccessorie(prod)
 								driver.back()
 
 						if prod.consumablesLinks is not None \
 							and len(prod.consumablesLinks) > 0:		#if prod has consumables
 							for j in range(len(prod.consumablesLinks)):
 								loadProductPage(prod.consumablesLinks[j].encode("utf-8"))
-								acc = Accessorie()
-								scrapeAccessorie(acc, prod, True)
-								driver.back()	
-
-				else:	#if product does not have variations
+								scrapeAccessorie(prod, True)
+								driver.back()		
+						continue
+					displayStatus("Switching product variation...", 0)
+					getProductVariations()[i].click()
+					while q("body", "html") == lastVariation:
+						time.sleep(0.5)
+					lastVariation = q("body", "html")	
 					scrapeProduct(prod)
+
 					if prod.accessoriesLinks is not None \
 						and len(prod.accessoriesLinks) > 0:
 						for j in range(len(prod.accessoriesLinks)):
 							loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
-							acc = Accessorie()
-							scrapeAccessorie(acc, prod)
+							scrapeAccessorie(prod)
 							driver.back()
+
 					if prod.consumablesLinks is not None \
 						and len(prod.consumablesLinks) > 0:		#if prod has consumables
 						for j in range(len(prod.consumablesLinks)):
 							loadProductPage(prod.consumablesLinks[j].encode("utf-8"))
-							acc = Accessorie()
-							scrapeAccessorie(acc, prod, True)
-							driver.back()			
+							scrapeAccessorie(prod, True)
+							driver.back()	
 
-		displayStatus("Done!", 1)
-		speak("Crawler finished, exit code 1")
-		#driver.close()		
-		
+			else:	#if product does not have variations
+				scrapeProduct(prod)
+				if prod.accessoriesLinks is not None \
+					and len(prod.accessoriesLinks) > 0:
+					for j in range(len(prod.accessoriesLinks)):
+						loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
+						scrapeAccessorie(prod)
+						driver.back()
+				if prod.consumablesLinks is not None \
+					and len(prod.consumablesLinks) > 0:		#if prod has consumables
+					for j in range(len(prod.consumablesLinks)):
+						loadProductPage(prod.consumablesLinks[j].encode("utf-8"))
+						scrapeAccessorie(prod, True)
+						driver.back()			
+
+	displayStatus("Done!", 1)
+	speak("Crawler finished, exit code 1")
+	#driver.close()		
+	'''	
 	except Exception as ex:
 		print str(ex)
-		speak("Exception raised in main thread. Suppressed")
-		pass
-		#raise(ex)
-
+		speak("Exception raised in main thread.")
+		print "Last crawl : " + prod.name + " at " + prod.url
+		raise(ex)
+	'''
 	#scrapeProduct("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ")   #-- 8 consumables in new tab :(
 	
-
 __init__()	
