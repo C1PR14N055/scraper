@@ -29,7 +29,8 @@ driver = None
 scrapedLinks = []
 assetsDir = "assets/"
 productsDir = "prod/"
-accDir = "acc/"
+#accDir = "acc/"
+#consDir = "cons/"
 
 def readFileGetLinks():
 	f = open("sitemap.txt", "r")
@@ -115,7 +116,7 @@ def scrapeProduct(prod):
 
 	saveAssets(prod.product_detail_performance_features_imgs)
 	
-def scrapeAccessorie(acc, prod):
+def scrapeAccessorie(acc, prod, as_cons=False):
 	global driver
 
 	#common product attrs
@@ -134,7 +135,7 @@ def scrapeAccessorie(acc, prod):
 	acc.tehnical_data = str(q("#ctl00_PlaceHolderMain_ctl23_UpdatePanel1", "html"))
 
 	#download aseests
-	saveAccessorie(acc, prod)
+	saveAccessorie(acc, prod, as_cons) 
 
 def isAccessoriesPage():
 	global driver
@@ -156,7 +157,7 @@ def isProductPafe():
 	except:
 		return False			
 
-def getProductVariations():
+def getProductVariations(): #all product variations
 	if q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection option", "len") > 0:
 		return q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection option", None)
 	else:
@@ -299,7 +300,7 @@ def saveProduct(prod):
 		mkdir(assetsDir)
 		mkdir(productsDir + fileName)
 		downloadFile(prod.img, \
-			productsDir + fileName + "/" + prod.img[prod.img.rindex("/") + 1:]) #download image and save as filename reverse index of .
+			productsDir + fileName + "/" + prod.img[prod.img.rindex("/") + 1:]) #download image and save as filename = reverse index of .
 	except Exception as ex:
 		displayStatus(str(ex), -1)
 		pass
@@ -310,7 +311,11 @@ def saveProduct(prod):
 	f.write(prod.to_json().encode('utf8'))
 	f.close()
 
-def saveAccessorie(acc, prod):
+def saveAccessorie(acc, prod, as_cons=False):
+	if as_cons:
+		accDir = "cons/"
+	else:
+		accDir = "acc/"	
 	displayStatus("Downloading accessorie assets...", 1)
 	fileName = (prod.title + "_" + prod.subtitle + "_" + prod.variation).decode("utf-8").replace(" ", "-").replace("/", "-").lower()
 	fileNameAcc = (acc.title).decode("utf-8").replace(" ", "-").replace("/", "-").lower()
@@ -354,7 +359,7 @@ def speak(what):
 		subprocess.call(['spd-say', what])
 	elif _platform.startswith("darwin"):
 		# MAC OS X
-		os.system("say " + what)
+		os.system("say -v Fred " + what)
 	elif _platform == "win32":
 		# Windows
 		import winsound
@@ -374,7 +379,6 @@ def clearScreen():
 def __init__():
 	
 	try:
-	
 		clearScreen()
 		global driver
 		if (USE_FIREFOX):
@@ -383,14 +387,63 @@ def __init__():
 		else:	
 			driver = webdriver.Chrome()
 
-		loadProductPage("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ")
-		#loadProductPage("https://www.festool.ro/Products/Accessories/Pages/Detail.aspx?pid=496169&name=CT-filtru-umed-NF-CT-26-36-48")
+		with open("all_prods_in_cat.json") as json_file:
+			json_data = json.load(json_file)
 
-		prod = Product()
-		if getProductVariations() is not None:
-			lastVariation = q("body", "html")
-			for i in range(len(getProductVariations())):
-				if getProductVariations()[i].get_attribute("value") == "":
+		for categ in json_data:
+			for produ in categ["prods"]:
+				loadProductPage(produ)
+				prod = Product()
+				prod.parent_name = categ["name"]
+				prod.parent_url = categ["url"]
+
+				if getProductVariations() is not None: #prod does has variations
+					lastVariation = q("body", "html")
+					for i in range(len(getProductVariations())):
+						if getProductVariations()[i].get_attribute("value") == "": #if product variation = default
+							
+							scrapeProduct(prod)
+
+							if prod.accessoriesLinks is not None \
+								and len(prod.accessoriesLinks) > 0:		#if prod has accessories
+								for j in range(len(prod.accessoriesLinks)):
+									loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
+									acc = Accessorie()
+									scrapeAccessorie(acc, prod)
+									driver.back()
+
+							if prod.consumablesLinks is not None \
+								and len(prod.consumablesLinks) > 0:		#if prod has consumables
+								for j in range(len(prod.consumablesLinks)):
+									loadProductPage(prod.consumablesLinks[j].encode("utf-8"))
+									acc = Accessorie()
+									scrapeAccessorie(acc, prod, True)
+									driver.back()		
+							continue
+						displayStatus("Switching product variation...", 0)
+						getProductVariations()[i].click()
+						while q("body", "html") == lastVariation:
+							time.sleep(0.5)
+						lastVariation = q("body", "html")	
+						scrapeProduct(prod)
+
+						if prod.accessoriesLinks is not None \
+							and len(prod.accessoriesLinks) > 0:
+							for j in range(len(prod.accessoriesLinks)):
+								loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
+								acc = Accessorie()
+								scrapeAccessorie(acc, prod)
+								driver.back()
+
+						if prod.consumablesLinks is not None \
+							and len(prod.consumablesLinks) > 0:		#if prod has consumables
+							for j in range(len(prod.consumablesLinks)):
+								loadProductPage(prod.consumablesLinks[j].encode("utf-8"))
+								acc = Accessorie()
+								scrapeAccessorie(acc, prod, True)
+								driver.back()	
+
+				else:	#if product does not have variations
 					scrapeProduct(prod)
 					if prod.accessoriesLinks is not None \
 						and len(prod.accessoriesLinks) > 0:
@@ -399,29 +452,13 @@ def __init__():
 							acc = Accessorie()
 							scrapeAccessorie(acc, prod)
 							driver.back()
-					continue
-				displayStatus("Switching product variation...", 0)
-				getProductVariations()[i].click()
-				while q("body", "html") == lastVariation:
-					time.sleep(0.5)
-				lastVariation = q("body", "html")	
-				scrapeProduct(prod)
-				if prod.accessoriesLinks is not None \
-					and len(prod.accessoriesLinks) > 0:
-					for j in range(len(prod.accessoriesLinks)):
-						loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
-						acc = Accessorie()
-						scrapeAccessorie(acc, prod)
-						driver.back()
-		else:
-			scrapeProduct(prod)
-			if prod.accessoriesLinks is not None \
-				and len(prod.accessoriesLinks) > 0:
-				for j in range(len(prod.accessoriesLinks)):
-					loadProductPage(prod.accessoriesLinks[j].encode("utf-8"))
-					acc = Accessorie()
-					scrapeAccessorie(acc, prod)
-					driver.back()
+					if prod.consumablesLinks is not None \
+						and len(prod.consumablesLinks) > 0:		#if prod has consumables
+						for j in range(len(prod.consumablesLinks)):
+							loadProductPage(prod.consumablesLinks[j].encode("utf-8"))
+							acc = Accessorie()
+							scrapeAccessorie(acc, prod, True)
+							driver.back()			
 
 		displayStatus("Done!", 1)
 		speak("Crawler finished, exit code 1")
@@ -429,8 +466,9 @@ def __init__():
 		
 	except Exception as ex:
 		print str(ex)
-		speak("Exception raised in main thread!")
-		raise(ex)
+		speak("Exception raised in main thread. Suppressed")
+		pass
+		#raise(ex)
 
 	#scrapeProduct("https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ")   #-- 8 consumables in new tab :(
 	

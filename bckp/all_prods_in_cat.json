@@ -1,0 +1,445 @@
+[{
+    "name": "Produse cu acumulator", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkuhandkreissaege_hkc_55", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkutauchsaege", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrhammer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrschrauber_cxs_txs", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrschrauber_c_li", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrschrauber_t", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrschrauber_quadrive_drc_kap", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkusschlagbohrschrauber", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkutrockenbauschrauber", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkupendelstichsaege_psc420", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkupendelstichsaege_psbc420", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_arbeitsleuchte", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_baustellenradio"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564636&name=Fer-str-u-circular-manual-cu-acumulator-HKC-55-EB-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561737&name=Ferastrau-circular-cu-acumulator-TSC-55-Li-REB-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564606&name=Masina-de-gaurit-cu-impact-cu-acumulator-BHC-19-BHC-18-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564531&name=Masina-de-gaurit-si-insurbat-cu-acumulator-CXS-Li-2-6-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564509&name=Masina-de-gaurit-si-insurbat-cu-acumulator-TXS-Li-2-6-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564603&name=Masina-de-gaurit-si-insurbat-cu-acumulator-C-15-Li-Ion-C-15-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564609&name=Ma-ina-de-g-urit-i-n-urubat-cu-acumulatori-C-18-Li-Ion-C-18-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564604&name=Masina-de-gaurit-si-insurbat-cu-acumulator-T-15+3-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564605&name=Masina-de-gaurit-si-insurbat-cu-acumulator-T-18+3-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500481&name=Pachet-Li-18-ferastrau-vertical-si-masina-de-gaurit-si-insurubat-cu-acumulator-T-18+3-PSC-420-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500782&name=Masina-de-gaurit-si-insurbat-cu-acumulator-DRC-18-4-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500781&name=Masini-de-gaurit-cu-percutie-cu-acumulator-PDC-18-4-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564608&name=Ma-in-de-n-urubat-n-zid-rie-uscat-cu-acumulator-DWC-18-4500-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564607&name=Ma-in-de-n-urubat-n-zid-rie-uscat-cu-acumulator-DWC-18-2500-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561738&name=Ferastrau-vertical-cu-acumulator-CARVEX-PSC-420-Li-18-PSC-420-EB-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500481&name=Pachet-Li-18-ferastrau-vertical-si-masina-de-gaurit-si-insurubat-cu-acumulator-T-18+3-PSC-420-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561739&name=Ferastrau-vertical-cu-acumulator-CARVEX-PSBC-420-Li-18-PSBC-420-EB-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500721&name=Lampa-de-lucru-SYSLITE-KAL-II", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769079&name=Lampa-de-lucru-SYSLITE-UNI", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=200183&name=Aparat-radio-pentru-antier-SYSROCK-BR-10-BR10"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_akku_produkte"
+},
+{
+    "name": "Masini de aplicat cant", 
+    "prod_or_competence": [], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574605&name=Masina-de-aplicat-cant-CONTURO-KA-65-Plus"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_kantenanleimen"
+},
+{
+    "name": "Gaurire si insurubare", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_bohrmaschinen_kap", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_schlagbohrmaschinen_kap", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrschrauber_cxs_txs", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrschrauber_c_li", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrschrauber_t", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrhammer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkubohrschrauber_quadrive_drc_kap", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkusschlagbohrschrauber", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkutrockenbauschrauber", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_fuehrungssysteme_bohren"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768934&name=Ma-ini-de-g-urit-QUADRILL-DR-18-4-E-FFP-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767991&name=Ma-in-de-g-urit-DR-20-E-FF-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768937&name=Masina-de-gaurit-cu-percutie-PD-20-4-E-FFP-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564531&name=Masina-de-gaurit-si-insurbat-cu-acumulator-CXS-Li-2-6-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564509&name=Masina-de-gaurit-si-insurbat-cu-acumulator-TXS-Li-2-6-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564603&name=Masina-de-gaurit-si-insurbat-cu-acumulator-C-15-Li-Ion-C-15-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564609&name=Ma-ina-de-g-urit-i-n-urubat-cu-acumulatori-C-18-Li-Ion-C-18-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564604&name=Masina-de-gaurit-si-insurbat-cu-acumulator-T-15+3-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564605&name=Masina-de-gaurit-si-insurbat-cu-acumulator-T-18+3-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500481&name=Pachet-Li-18-ferastrau-vertical-si-masina-de-gaurit-si-insurubat-cu-acumulator-T-18+3-PSC-420-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564606&name=Masina-de-gaurit-cu-impact-cu-acumulator-BHC-19-BHC-18-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500782&name=Masina-de-gaurit-si-insurbat-cu-acumulator-DRC-18-4-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500781&name=Masini-de-gaurit-cu-percutie-cu-acumulator-PDC-18-4-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564608&name=Ma-in-de-n-urubat-n-zid-rie-uscat-cu-acumulator-DWC-18-4500-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564607&name=Ma-in-de-n-urubat-n-zid-rie-uscat-cu-acumulator-DWC-18-2500-Li-Basic"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_bohren_und_schrauben"
+},
+{
+    "name": "Aspirarea prafului", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_absaugmobile_ct_sys", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_absaugmobile_ct", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_absaugmobile_ctl", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_absaugmobil_ctm", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_spezialsauger_ct", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_mobiler_absaugarm", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_vakuum_spannduese"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584173&name=Aparat-mobil-de-aspirare-CTL-SYS", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767992&name=Aspirator-mobil-CLEANTEC-CT-17-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584150&name=Aspirator-mobil-CLEANTEC-CTL-MINI", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584159&name=Aspirator-mobil-CTL-MIDI", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=583490&name=Aspirator-mobil-CLEANTEC-CTL-26-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584017&name=Aspirator-mobil-CLEANTEC-CTL-26-AC-CTL-26-E-AC", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=583491&name=Aspirator-mobil-CLEANTEC-CTL-36-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584025&name=Aspirator-mobil-CLEANTEC-CTL-36-AC-CTL-36-E-AC", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584167&name=Aparat-mobil-de-aspirare-CLEANTEC-CTL-36-AC-HD-CTL-36-E-AC-HD", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584070&name=Aspirator-mobil-CLEANTEC-CTL-48-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584085&name=Aspirator-mobil-CLEANTEC-CTL-48-AC-CTL-48-E-AC", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=583848&name=Aspirator-mobil-CLEANTEC-CTM-26-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584032&name=Aspirator-mobil-CLEANTEC-CTM-26-AC-CTM-26-E-AC", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584000&name=Aspirator-mobil-CLEANTEC-CTM-36-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584035&name=Aspirator-mobil-CLEANTEC-CTM-36-AC-CTM-36-E-AC", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584171&name=Aparat-mobil-de-aspirare-CLEANTEC-CTM-36-AC-HD-CTM-36-E-AC-HD", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584080&name=Aspirator-mobil-CLEANTEC-CTM-48-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584095&name=Aspirator-mobil-CLEANTEC-CTM-48-AC-CTM-48-E-AC", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584139&name=Aspirator-mobil-pentru-aplicatii-speciale-CLEANTEC-CTH-26-E-a", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584137&name=Aspirator-mobil-pentru-aplicatii-speciale-CLEANTEC-CTH-48-E-a", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584134&name=Aspirator-mobil-CLEANTEC-CT-48-EC-CTL-48-E-LE-EC", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584131&name=Aspirator-mobil-CLEANTEC-CT-48-EC-B22-CTL-48-E-LE-EC-B22-R1"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_saugen"
+},
+{
+    "name": "T\u0103ierea cu fer\u0103str\u0103ul", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_pendelstichsaegen_ps420", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_tauchsaegen", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_zimmerei_handkreissaegen", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_kapp_zugsaege", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_leistensaege", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_precisio", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_schwertsaegen_kap"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561587&name=Ferastrau-vertical-CARVEX-PS-420-EBQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561602&name=Ferastrau-vertical-CARVEX-PSB-420-EBQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561738&name=Ferastrau-vertical-cu-acumulator-CARVEX-PSC-420-Li-18-PSC-420-EB-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561739&name=Ferastrau-vertical-cu-acumulator-CARVEX-PSBC-420-Li-18-PSBC-420-EB-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500481&name=Pachet-Li-18-ferastrau-vertical-si-masina-de-gaurit-si-insurubat-cu-acumulator-T-18+3-PSC-420-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561445&name=Ferastrau-vertical-TRION-PS-300-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561453&name=Ferastrau-vertical-TRION-PSB-300-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561579&name=Ferastrau-circular-TS-55-R-Q-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561737&name=Ferastrau-circular-cu-acumulator-TSC-55-Li-REB-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561184&name=Ferastrau-circular-TS-75-EBQ", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561731&name=Fer-str-u-circular-manual-HK-55-EBQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767692&name=Fer-str-u-circular-manual-HK-85-EB", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564636&name=Fer-str-u-circular-manual-cu-acumulator-HKC-55-EB-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769531&name=Ferastrau-circular-de-tamplarie-HK-132-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561396&name=Ferastrau-circular-stationar-cu-sanie-de-glisare-KAPEX-KS-88-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561283&name=Ferastrau-circular-stationar-cu-sanie-de-glisare-KAPEX-KS-120-EB", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561160&name=Ferastrau-circular-stationar-SYM-70-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561160&name=Ferastrau-circular-stationar-SYM-70-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561180&name=Ferastrau-circular-stationar-PRECISIO-CS-50-cu-masa-de-lucru-CS-50-EB", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561136&name=Ferastrau-circular-stationar-PRECISIO-CS-70-cu-masa-de-lucru-CS-70-EB", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767995&name=Ferastrau-sabie-UNIVERS-SSU-200-EB-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767998&name=Ferastrau-sabie-IS-330-EB"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_saegen"
+},
+{
+    "name": "Lucrari in pozitie stationara", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_comapct_modul_system", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_multifunktionstisch", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_kapp_zugsaege", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_precisio"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561566&name=Ferastrau-circular-TS-55-R-stationar-cu-masa-de-lucru-CMS-TS-55-R-Set", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570269&name=Masina-de-frezat-profile-TF-1400-stationara-cu-masa-de-lucru-TF-1400-Set", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570275&name=Masina-de-frezat-profile-TF-2200-stationara-cu-masa-de-lucru-TF-2200-Set", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561228&name=Cadru-de-baza-pentru-module-stationare-CMS-GE", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570282&name=CMS-TS-55-R-Modul-stationar-CMS-cu-ferastrau-circular-TS-55-R-CMS-MOD-TS-55-R", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561520&name=CMS-TS-75-Modul-stationar-CMS-cu-ferastrau-circular-TS-75-CMS-MOD-TS-75", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570244&name=CMS-BS-120-Slefuitor-cu-banda-BS-120-cu-modul-stationar-CMS-MOD-BS-120", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561263&name=CMS-PS-300-Modul-stationar-CMS-pentru-ferastrau-vertical-PS-300-CMS-MOD-PS-300-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=495315&name=Masa-multifunctionala-MFT-3-MFT-3", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561396&name=Ferastrau-circular-stationar-cu-sanie-de-glisare-KAPEX-KS-88-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561283&name=Ferastrau-circular-stationar-cu-sanie-de-glisare-KAPEX-KS-120-EB", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561160&name=Ferastrau-circular-stationar-SYM-70-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561180&name=Ferastrau-circular-stationar-PRECISIO-CS-50-cu-masa-de-lucru-CS-50-EB", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561136&name=Ferastrau-circular-stationar-PRECISIO-CS-70-cu-masa-de-lucru-CS-70-EB"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_halbstationaeres_arbeiten"
+},
+{
+    "name": "Oscilatoare", 
+    "prod_or_competence": [], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=563000&name=Scula-electrica-oscilatoare-multifunctionala-VECTURO-OS-400-EQ-Plus"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_oszillieren"
+},
+{
+    "name": "Frezare", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_oberfraese", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_kantenfraese", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_vs600", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_plattenfraese"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574335&name=Masina-de-frezat-multifunctionala-OF-1010-EBQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574341&name=Masina-de-frezat-multifunctionala-OF-1400-EBQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574349&name=Masina-de-frezat-multifunctionala-OF-2200-EB-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574184&name=Masina-de-frezat-muchii-OFK-500-Q-R3", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574359&name=Masina-de-frezat-muchii-OFK-700-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574369&name=Modul-stationar-cu-masina-de-frezat-muchii-MFK-700-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=488876&name=Sistem-VS-600-pentru-imbinari-cu-sablon-VS-600-GE", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574321&name=Masina-de-frezat-materiale-compozite-din-aluminiu-PF-1200-E-Plus-Alucobond"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_fraesen"
+},
+{
+    "name": "Sistem de imbinari in lemn DOMINO", 
+    "prod_or_competence": [], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574325&name=DOMINO-DF-500-Q-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574320&name=Masina-pentru-imbinari-in-lemn-DOMINOXL-DF-700-EQ-Plus"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_domino_verbindungssystem_hauptkap"
+},
+{
+    "name": "Rindeluire", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_hobel", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_balkenhobel"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574557&name=Rindea-cu-maner-ambidextru-EHL-65-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574550&name=Rindea-HL-850-EB-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769532&name=Rindea-pentru-grinzi-PL-205-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769533&name=Rindea-pentru-grinzi-PL-245-E"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_hobeln"
+},
+{
+    "name": "Masini de tamplarie", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_zimmerei_handkreissaegen", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_balkenhobel", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_kettenstemmer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_schwertsaegen_kap", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_fuehrungssysteme_bohren"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=561731&name=Fer-str-u-circular-manual-HK-55-EBQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767692&name=Fer-str-u-circular-manual-HK-85-EB", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564636&name=Fer-str-u-circular-manual-cu-acumulator-HKC-55-EB-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769531&name=Ferastrau-circular-de-tamplarie-HK-132-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769532&name=Rindea-pentru-grinzi-PL-205-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769533&name=Rindea-pentru-grinzi-PL-245-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769534&name=Masina-de-mortezat-cu-lant-CM-150-28x40x100-A", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767995&name=Ferastrau-sabie-UNIVERS-SSU-200-EB-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767998&name=Ferastrau-sabie-IS-330-EB"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_zimmereimaschinen"
+},
+{
+    "name": "Prelucrare suprafetelor", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_rotex", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_exzenterschleifer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_rutscher_grobschliff", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_rutscher_feinschliff", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_rotationsschleifer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_bandschleifer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_planex", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_rotationspolierer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_oelspender", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_rustofix", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_handschleifkloetze_handschleifmittel"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571819&name=Slefuitor-cu-excentric-ROTEX-RO-90-DX-FEQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571779&name=Slefuitor-cu-excentric-ROTEX-RO-125-FEQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=574816&name=Slefuitor-cu-excentric-ROTEX-RO-150-FEQ-EDITION-16", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571895&name=lefuitor-excentric-ETS-EC-125-3-EQ", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571871&name=Slefuitor-cu-excentric-ETS-EC-150-3-EQ", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571883&name=Slefuitor-cu-excentric-ETS-EC-150-5-EQ", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571814&name=Slefuitor-cu-excentric-ETS-125-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571898&name=Slefuitor-cu-excentric-ETS-150-3-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571911&name=Slefuitor-cu-excentric-ETS-150-5-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571923&name=Slefuitor-cu-excentric-WTS-150-7-E-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567855&name=Slefuitor-cu-talpa-triunghiulara-DELTEX-DX-93-E-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567697&name=Slefuitor-cu-vibratie-RUTSCHER-RS-100-Q-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567699&name=Slefuitor-orbital-RUTSCHER-RS-100-C-Q-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567841&name=Slefuitor-orbital-RUTSCHER-RS-200-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567845&name=Slefuitor-cu-vibratie-RUTSCHER-RS-300-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567860&name=LEFUITOR-ORBITAL-RTS-400-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567868&name=Slefuitor-Delta-DTS-400-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567850&name=Slefuitor-rectiliniu-DUPLEX-LS-130-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570788&name=Slefuitor-rotativ-RAS-115-E-Set", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570774&name=Slefuitor-rotativ-RAS-180-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570203&name=Slefuitor-cu-banda-BS-75-E-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570209&name=Slefuitor-cu-banda-BS-105-E-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571574&name=Slefuitor-cu-brat-telescopic-PLANEX-LHS-225-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571841&name=Slefuitor-cu-brat-telescopic-PLANEX-LHS-225-CT-36-Set-LHS-225-IP-CTL-36-E-AC-Set", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570722&name=Masina-rotativa-de-lustruit-RAP-80-02-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570809&name=Masina-rotativa-de-lustruit-SHINEX-RAP-150-14-FE", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570734&name=Masina-rotativa-de-lustruit-POLLUX-180-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=498060&name=Dozator-de-ulei-SURFIX-Heavy-Duty-0-3l-OS-Set-HD-0-3-l", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=498061&name=OS-SET-One-Step-0-3l-OS-Set-OS-0-3-l", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=498062&name=OS-SET-Outdoor-0-3l-OS-Set-OD-0-3-l", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=498063&name=Dozator-de-ulei-SURFIX-SYS3-SET-OS-SYS3-Set", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570775&name=Masina-multifunctionala-cu-perie-RUSTOFIX-BMS-180-E"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_oberflaechenbearbeitung"
+},
+{
+    "name": "Lustruire", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_rotationspolierer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_zubehoer_rotationspolierer"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570722&name=Masina-rotativa-de-lustruit-RAP-80-02-E", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570809&name=Masina-rotativa-de-lustruit-SHINEX-RAP-150-14-FE", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=570734&name=Masina-rotativa-de-lustruit-POLLUX-180-E"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_polieren"
+},
+{
+    "name": "Zid\u0103rie uscat\u0103, renovare \u015fi agitare", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_ruehrwerke", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_diamant_trennsystem", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_diamant_schleifsystem", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_diamantschleifer_renofix", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_renovierungsfraese_renofix", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_akkutrockenbauschrauber", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_planex", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_tapetenperforierer", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_teppichentferner"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767999&name=Agitatoare-mecanice-MX-1000-E-EF-HS2", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768002&name=Agitatoare-mecanice-MX-1000-2-E-EF-HS2", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768004&name=Agitatoare-mecanice-MX-1200-E-EF-HS3R", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768008&name=Agitatoare-mecanice-MX-1200-2-E-EF-HS3R", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768009&name=Agitatoare-mecanice-MX-1600-2-E-EF-HS3R", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769236&name=Masini-pentru-agitare-Duo-MX-1600-2-EQ-DUO-DOUBLE", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769954&name=Sistem-de-t-iere-Diamant-DSC-AG-125-FH-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767996&name=Sistem-de-taiat-cu-diamant-DSC-AG-125-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=767997&name=Sistem-de-taiat-cu-diamant-DSC-AG-230", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768997&name=Sistem-de-slefuit-polizat-cu-diamant-DSG-AG-125-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768809&name=Masina-de-slefuit-polizat-cu-diamant-RENOFIX-RG-130-E-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768016&name=Polizorul-de-renovari-RENOFIX-RG-80-E-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=768019&name=Polizorul-de-renovari-RENOFIX-RG-150-E-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564608&name=Ma-in-de-n-urubat-n-zid-rie-uscat-cu-acumulator-DWC-18-4500-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=564607&name=Ma-in-de-n-urubat-n-zid-rie-uscat-cu-acumulator-DWC-18-2500-Li-Basic", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571574&name=Slefuitor-cu-brat-telescopic-PLANEX-LHS-225-EQ-Plus", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=571841&name=Slefuitor-cu-brat-telescopic-PLANEX-LHS-225-CT-36-Set-LHS-225-IP-CTL-36-E-AC-Set", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=495747&name=Perforator-de-tapet-TP-220", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=567873&name=Masina-de-indepartat-mocheta-TPE-RS-100-Q-Plus"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_trockenbau_und_renovieren"
+},
+{
+    "name": "Sisteme de ghidare", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_fuehrungsschienen", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_kappschienen"
+    ], 
+    "prods": [], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_fuehrungssysteme"
+},
+{
+    "name": "Valize si cutii de scule si accesorii SYSTAINER, SORTAINER si Systainer-Port", 
+    "prod_or_competence": [], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=491922&name=Systainer-Port-SYS-PORT-1000-2"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_systainer_sortainer_sys_port"
+},
+{
+    "name": "Iluminarea", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_baustrahler", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_arbeitsleuchte"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=200164&name=Proiector-pentru-construc-ii-DUO", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=500721&name=Lampa-de-lucru-SYSLITE-KAL-II", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=769079&name=Lampa-de-lucru-SYSLITE-UNI"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_beleuchtung"
+},
+{
+    "name": "Organizarea spatiului de lucru", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_baustellenradio", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_vakuumspanntechnik", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_absaugarme_energieampel", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_workcenter_wcr_und_sets", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_plug_it"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=200183&name=Aparat-radio-pentru-antier-SYSROCK-BR-10-BR10", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=712223&name=Pompa-de-vid-si-dispozitiv-de-prindere-cu-vid-VAC-SYS-Set-SE1", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=583811&name=Bloc-de-alimentare-EAA-EW-DW-TURBO-M-EU", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=583820&name=Bloc-de-alimentare-EAA-EW-CT-SRM-M-EU", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=583867&name=Brat-telescopic-cu-contragreutate-ASA-5000-CT-SR-EU", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=583868&name=Brat-telescopic-cu-contragreutate-ASA-6000-CT-SR-EU", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=584188&name=Seturi-electrice-de-lefuire-ETS-EC-150-WCR-CTM-36", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=498966&name=Statie-universala-UCR-1000", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=712650&name=Set-cu-luciu-intens-I-UCR-RAP150-LEX-77-Set-EU", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=498967&name=Scaun-multifunctional-MFH-1000", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=497471&name=Statie-de-lucru-WCR-1000", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=712643&name=Set-de-siguranta-LEX3-CT48B22-WCR-EU", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=712639&name=Set-Spot-Repair-RO90-CTL26-WCR-EU", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=712646&name=Set-all-inclusive-slefuire-+-aspirare-LEX3-CT48EC-WCR-EU", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=712648&name=Set-tot-inclus-LEX-150-WCR-STF-CTM-HB", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=712635&name=Set-pentru-semne-de-vartej-holograme-RO150-MPA-PS-MF-Set-EU"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_arbeitsplatzorganisation"
+},
+{
+    "name": "Slefuire cu aer comprimat", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_druckluft_exzenterschleifer_lex3", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_druckluft_exzenterschleifer_lex2", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_druckluft_rutscher"
+    ], 
+    "prods": [
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=691131&name=Slefuitor-pneumatic-cu-excentric-LEX-3-77-2-5-LEX-3-77-2-5", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=691140&name=Slefuitor-pneumatic-cu-excentric-LEX-3-125-3", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=691141&name=Slefuitor-pneumatic-cu-excentric-LEX-3-125-5", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=691137&name=Slefuitor-pneumatic-cu-excentric-LEX-3-150-3", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=691138&name=Slefuitor-pneumatic-cu-excentric-LEX-3-150-5", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=691139&name=Slefuitor-pneumatic-cu-excentric-LEX-3-150-7", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=692096&name=Slefuitor-pneumatic-cu-excentric-LEX-2-185-7", 
+        "https://www.festool.ro/Products/Pages/Product-Detail.aspx?pid=692099&name=Slefuitor-orbital-pneumatic-LRS-400"
+    ], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_druckluftwerkzeuge"
+},
+{
+    "name": "Obiecte de vanzare pentru fani", 
+    "prod_or_competence": [
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_fanartikel_bekleidung_men", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_fanartikel_freizeit", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_fanartikel_buero", 
+        "https://www.festool.ro/Products/Pages/Product-Competence.aspx?foc=online_fanartikel_werkstatt_kap"
+    ], 
+    "prods": [], 
+    "url": "https://www.festool.ro/Products/Pages/Product-Category.aspx?foc=online_fanartikel"
+}
+]
