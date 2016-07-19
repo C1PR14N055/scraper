@@ -196,12 +196,17 @@ def isProductPafe():
 def getProductVariations(): #all product variations
 	if q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection option", "len") > 0:
 		return q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection option", None)
+	#elif q("#ctl00$PlaceHolderMain$ctl12$DdlProductVariantSelection option", "len") > 0:
+		#return q("#ctl00$PlaceHolderMain$ctl12$DdlProductVariantSelection option", None)	
 	else:
 		return None		
 			
 def getProductVariation(): #curent prod variation
 	if q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection", "len") >= 1:
 		return q("#ctl00_PlaceHolderMain_ctl12_DdlProductVariantSelection option[selected]", "text")
+	#elif q("#ctl00$PlaceHolderMain$ctl12$DdlProductVariantSelection", "len") >= 1:
+		#return q("#ctl00$PlaceHolderMain$ctl12$DdlProductVariantSelection option[selected]", "text")
+	else: return None	
 
 def executeWaitAndGet(elem_exists, js_to_exec, elem_expected, elem_to_get, what):
 	global driver
@@ -330,7 +335,7 @@ def downloadFile(urlToRetrieve, dirName):
 
 def saveProduct(prod):
 	displayStatus("Downloading product assets...", 1)
-	fileName = (prod.title + "_" + prod.subtitle + "_" + prod.variation).decode("utf-8").replace(" ", "-").lower()
+	fileName = (prod.title + "_" + prod.subtitle).decode("utf-8").replace(" ", "-").lower()
 	try:
 		mkdir(productsDir)
 		mkdir(assetsDir)
@@ -493,7 +498,7 @@ def __init__():
 	displayStatus("Done!", 1)
 	speak("Crawler finished, exit code 1")
 	#driver.close()		
-	'''	
+	'''
 	except Exception as ex:
 		print str(ex)
 		speak("Exception raised in main thread.")
