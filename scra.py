@@ -335,7 +335,7 @@ def downloadFile(urlToRetrieve, dirName):
 
 def saveProduct(prod):
 	displayStatus("Downloading product assets...", 1)
-	fileName = (prod.title + "_" + prod.subtitle).decode("utf-8").replace(" ", "-").lower()
+	fileName = (prod.title + "_" + prod.subtitle).decode("utf-8").replace(" ", "-").replace("/", "|").lower()
 	try:
 		mkdir(productsDir)
 		mkdir(assetsDir)
@@ -358,8 +358,8 @@ def saveAccessorie(acc, prod, as_cons=False):
 	else:
 		accDir = "acc/"	
 	displayStatus("Downloading accessorie assets...", 1)
-	fileName = (prod.title + "_" + prod.subtitle + "_" + prod.variation).decode("utf-8").replace(" ", "-").replace("/", "-").lower()
-	fileNameAcc = (acc.title).decode("utf-8").replace(" ", "-").replace("/", "-").lower()
+	fileName = (prod.title + "_" + prod.subtitle).decode("utf-8").replace(" ", "-").replace("/", "|").lower()
+	fileNameAcc = (acc.title).decode("utf-8").replace(" ", "-").replace("/", "|").lower()
 
 	try:
 		mkdir(productsDir)
