@@ -16,7 +16,7 @@ import os, time, json
 
 admin_url = 'http://www.premium-store.ro/admin/'
 admin_usr = 'admin'
-admin_pass = '2VxHnFZfCeF6'
+admin_pass = ''
 auth_token = None
 
 #URLS
